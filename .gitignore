@@ -1,0 +1,50 @@
+# Datos (no subir datasets pesados)
+data/raw/
+data/processed/
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Checkpoints y modelos
+*.pt
+*.pth
+*.h5
+*.pkl
+checkpoints/*.pt
+!checkpoints/.gitkeep
+
+# Logs de entrenamiento
+runs/
+wandb/
+lightning_logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Entorno
+.env
+.env.local
