@@ -86,6 +86,24 @@ By contrast, supervised learning as used in Workshops 1 and 2 is
 of actions, the trade-off between acting and waiting, or policies that depend
 on the history of states.
 
+
+### 1.4 Why DQN Specifically
+
+The state space of our MDP is continuous (ℝ⁸), making tabular Q-Learning
+impractical. Following the approach introduced in the course material,
+we adopt a Deep Q-Network (DQN) that approximates Q(s, a; θ) using a
+neural network, stabilized by two key mechanisms: an experience replay
+buffer that breaks temporal correlations, and a target network that
+provides stationary regression targets.
+
+The discount factor γ = 0.99 is chosen because real estate investment
+is inherently long-horizon; lower values would induce myopia and lead
+the agent to sell prematurely. This choice is consistent with the
+guidelines on discounting introduced in the course.
+
+
+
+
 ---
 
 ## 2. Markov Decision Process Formulation
