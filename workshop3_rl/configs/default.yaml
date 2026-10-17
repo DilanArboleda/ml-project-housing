@@ -1,0 +1,73 @@
+# ============================================================
+# Workshop 3 — Real Estate Investment RL Environment
+# Default configuration
+# ============================================================
+
+environment:
+  # Episode
+  horizon: 120                  # T = 120 months (10 years)
+
+  # Price dynamics (geometric random walk)
+  initial_price_low: 0.8        # Normalized initial price range
+  initial_price_high: 1.2
+  mu_monthly: 0.0025            # ~3% annual drift
+  sigma_monthly: 0.0144         # ~5% annual volatility
+
+  # Property condition
+  initial_condition_low: 0.4
+  initial_condition_high: 0.8
+  condition_decay_per_month: 0.005
+  renovation_condition_gain: 0.30
+
+  # Capital
+  initial_capital: 1.0
+
+  # Cost parameters (as fractions of initial price)
+  buying_cost_rate: 0.03
+  selling_cost_rate: 0.05
+  renovation_cost: 0.08
+  maintenance_cost_monthly: 0.002
+  forced_sale_cost: 0.10
+
+  # Reward shaping
+  invalid_action_penalty: 0.05
+  idle_capital_penalty: 0.001
+  idle_capital_threshold: 0.5
+  condition_bonus_max: 0.10     # Up to +10% price bonus at full condition
+
+  # Termination
+  bankruptcy_threshold: 0.0
+  success_threshold: 2.0        # Optional early stop during evaluation
+
+# ============================================================
+# Agent (DQN) — hyperparameters
+# ============================================================
+agent:
+  algorithm: "dqn"
+  hidden_sizes: [128, 128]
+  learning_rate: 1.0e-3
+  gamma: 0.99
+  batch_size: 64
+  buffer_size: 100000
+  target_update_freq: 1000      # steps
+  epsilon_start: 1.0
+  epsilon_end: 0.05
+  epsilon_decay: 0.995
+  gradient_clip: 10.0
+  train_start: 1000             # steps before training begins
+
+# ============================================================
+# Training
+# ============================================================
+training:
+  episodes: 1000
+  eval_every: 50
+  eval_episodes: 20
+  save_best: true
+  log_dir: "runs/workshop3"
+  checkpoint_dir: "checkpoints"
+
+# ============================================================
+# Random seed (for reproducibility)
+# ============================================================
+seed: 42
