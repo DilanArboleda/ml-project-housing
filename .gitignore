@@ -45,6 +45,23 @@ dist/
 .DS_Store
 Thumbs.db
 
+# Tools
+tools/
+
+# Documentos personales / notas de estudio (no versionar en git)
+GUIA_EXPLICATIVA_WORKSHOP1.*
+*ESPANOL*
+*personal*
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
 # Entorno
 .env
 .env.local
