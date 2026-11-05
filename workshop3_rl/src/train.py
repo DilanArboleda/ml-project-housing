@@ -55,8 +55,13 @@ def evaluate(agent: DQNAgent, env: RealEstateInvestmentEnv, episodes: int = 20) 
     return float(np.mean(total_returns))
 
 
-def train(config_path: str) -> None:
-    """Main training loop."""
+def train(config_path: str, checkpoint_name: str = "agent_best.pt") -> None:
+    """Main training loop.
+    
+    Args:
+        config_path: Path to the YAML configuration file.
+        checkpoint_name: Filename for the best checkpoint (e.g., 'agent_patient.pt').
+    """
     # --------------------------------------------------------------------------
     # 1. Setup
     # --------------------------------------------------------------------------
@@ -153,9 +158,9 @@ def train(config_path: str) -> None:
             # Save best model
             if val_return > best_val_return:
                 best_val_return = val_return
-                save_path = "../checkpoints/agent_best.pt"
+                save_path = f"../checkpoints/{checkpoint_name}"
                 agent.save(save_path)
-                tqdm.write(f"  -> New best model saved (Val: {best_val_return:+.4f})")
+                tqdm.write(f"  -> New best model saved at {save_path} (Val: {best_val_return:+.4f})")
                 
     # --------------------------------------------------------------------------
     # 4. Wrap up
@@ -170,5 +175,13 @@ def train(config_path: str) -> None:
 
 
 if __name__ == "__main__":
-    # Assuming we run from workshop3_rl/src
-    train("../configs/default.yaml")
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Train DQN agent on real estate env")
+    parser.add_argument("--config", type=str, default="../configs/default.yaml",
+                        help="Path to config YAML")
+    parser.add_argument("--checkpoint_name", type=str, default="agent_best.pt",
+                        help="Name of checkpoint file (e.g., agent_patient.pt)")
+    args = parser.parse_args()
+    
+    train(args.config, args.checkpoint_name)
