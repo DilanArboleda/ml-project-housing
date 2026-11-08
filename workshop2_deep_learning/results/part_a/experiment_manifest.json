@@ -1,0 +1,538 @@
+{
+  "protocol": {
+    "selection_metric": "minimum validation MAE in USD",
+    "test_partition_used": false,
+    "split_file": "data/splits.json",
+    "seeds": [
+      7,
+      42,
+      2026
+    ],
+    "max_epochs": 250,
+    "early_stopping_patience": 30,
+    "batch_size": 32,
+    "scalers_fit_partition": "train only",
+    "ridge_validation_mae_reference": 14101.863563482528
+  },
+  "configurations": [
+    {
+      "name": "e3_no_dropout",
+      "description": "Reference with dropout changed from 0.05 to 0.00",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.0,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true
+    },
+    {
+      "name": "e4_wide_128_64",
+      "description": "Reference with hidden layers changed to 128-64",
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true
+    },
+    {
+      "name": "e5_weight_decay_1e4",
+      "description": "Reference with weight decay changed from 1e-5 to 1e-4",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 0.0001,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true
+    },
+    {
+      "name": "e6_learning_rate_5e4",
+      "description": "Reference with learning rate changed from 1e-3 to 5e-4",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.0005,
+      "standardize_inputs": true,
+      "standardize_target": true
+    },
+    {
+      "name": "a1_no_input_standardization",
+      "description": "Ablation: keep Workshop 1 X without extra standardization",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": false,
+      "standardize_target": true
+    },
+    {
+      "name": "a2_no_target_standardization",
+      "description": "Ablation: train directly on log1p(SalePrice)",
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": false
+    }
+  ],
+  "runs": [
+    {
+      "run_name": "experiment2_reference_seed42",
+      "config_name": "experiment2_reference",
+      "description": "Experiment 2 reference configuration",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 75,
+      "epochs_run": 105,
+      "best_val_mae": 15837.9453125,
+      "best_val_rmse": 24233.625564491995,
+      "best_val_r2": 0.9242896437644958,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints/model_best_experiment2.pt",
+      "history": "workshop2_deep_learning/results/training_history_experiment2.json"
+    },
+    {
+      "run_name": "e3_no_dropout_seed42",
+      "config_name": "e3_no_dropout",
+      "description": "Reference with dropout changed from 0.05 to 0.00",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.0,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 66,
+      "epochs_run": 96,
+      "best_val_mae": 19330.27734375,
+      "best_val_rmse": 28932.337064260813,
+      "best_val_r2": 0.8920840620994568,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e3_no_dropout_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e3_no_dropout_seed42.json"
+    },
+    {
+      "run_name": "e4_wide_128_64_seed42",
+      "config_name": "e4_wide_128_64",
+      "description": "Reference with hidden layers changed to 128-64",
+      "seed": 42,
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 41857,
+      "best_epoch": 83,
+      "epochs_run": 113,
+      "best_val_mae": 14051.46484375,
+      "best_val_rmse": 20626.190729264577,
+      "best_val_r2": 0.9451525211334229,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e4_wide_128_64_seed42.json"
+    },
+    {
+      "run_name": "e5_weight_decay_1e4_seed42",
+      "config_name": "e5_weight_decay_1e4",
+      "description": "Reference with weight decay changed from 1e-5 to 1e-4",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 0.0001,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 81,
+      "epochs_run": 111,
+      "best_val_mae": 15534.412109375,
+      "best_val_rmse": 23628.12019607146,
+      "best_val_r2": 0.9280257821083069,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e5_weight_decay_1e4_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e5_weight_decay_1e4_seed42.json"
+    },
+    {
+      "run_name": "e6_learning_rate_5e4_seed42",
+      "config_name": "e6_learning_rate_5e4",
+      "description": "Reference with learning rate changed from 1e-3 to 5e-4",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.0005,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 61,
+      "epochs_run": 91,
+      "best_val_mae": 16341.5478515625,
+      "best_val_rmse": 25099.41449516303,
+      "best_val_r2": 0.9187832474708557,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e6_learning_rate_5e4_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e6_learning_rate_5e4_seed42.json"
+    },
+    {
+      "run_name": "a1_no_input_standardization_seed42",
+      "config_name": "a1_no_input_standardization",
+      "description": "Ablation: keep Workshop 1 X without extra standardization",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": false,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 75,
+      "epochs_run": 105,
+      "best_val_mae": 15696.5908203125,
+      "best_val_rmse": 26301.793094768273,
+      "best_val_r2": 0.9108155369758606,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_a1_no_input_standardization_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_a1_no_input_standardization_seed42.json"
+    },
+    {
+      "run_name": "a2_no_target_standardization_seed42",
+      "config_name": "a2_no_target_standardization",
+      "description": "Ablation: train directly on log1p(SalePrice)",
+      "seed": 42,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": false,
+      "trainable_parameters": 18881,
+      "best_epoch": 152,
+      "epochs_run": 182,
+      "best_val_mae": 34600.953125,
+      "best_val_rmse": 56754.417766373044,
+      "best_val_r2": 0.5847420692443848,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_a2_no_target_standardization_seed42.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_a2_no_target_standardization_seed42.json"
+    },
+    {
+      "run_name": "experiment2_reference_seed7",
+      "config_name": "experiment2_reference",
+      "description": "Experiment 2 reference configuration",
+      "seed": 7,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 49,
+      "epochs_run": 79,
+      "best_val_mae": 13868.751953125,
+      "best_val_rmse": 20163.74330326589,
+      "best_val_r2": 0.947584331035614,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_experiment2_reference_seed7.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_experiment2_reference_seed7.json"
+    },
+    {
+      "run_name": "e4_wide_128_64_seed7",
+      "config_name": "e4_wide_128_64",
+      "description": "Reference with hidden layers changed to 128-64",
+      "seed": 7,
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 41857,
+      "best_epoch": 46,
+      "epochs_run": 76,
+      "best_val_mae": 14245.7265625,
+      "best_val_rmse": 20834.574341704225,
+      "best_val_r2": 0.9440386891365051,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed7.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e4_wide_128_64_seed7.json"
+    },
+    {
+      "run_name": "e5_weight_decay_1e4_seed7",
+      "config_name": "e5_weight_decay_1e4",
+      "description": "Reference with weight decay changed from 1e-5 to 1e-4",
+      "seed": 7,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 0.0001,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 49,
+      "epochs_run": 79,
+      "best_val_mae": 13526.6669921875,
+      "best_val_rmse": 19780.095854166128,
+      "best_val_r2": 0.9495599865913391,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e5_weight_decay_1e4_seed7.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e5_weight_decay_1e4_seed7.json"
+    },
+    {
+      "run_name": "experiment2_reference_seed2026",
+      "config_name": "experiment2_reference",
+      "description": "Experiment 2 reference configuration",
+      "seed": 2026,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 53,
+      "epochs_run": 83,
+      "best_val_mae": 14379.220703125,
+      "best_val_rmse": 20609.772439306555,
+      "best_val_r2": 0.945239782333374,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_experiment2_reference_seed2026.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_experiment2_reference_seed2026.json"
+    },
+    {
+      "run_name": "e4_wide_128_64_seed2026",
+      "config_name": "e4_wide_128_64",
+      "description": "Reference with hidden layers changed to 128-64",
+      "seed": 2026,
+      "hidden_dims": [
+        128,
+        64
+      ],
+      "dropout": 0.05,
+      "weight_decay": 1e-05,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 41857,
+      "best_epoch": 93,
+      "epochs_run": 123,
+      "best_val_mae": 14419.173828125,
+      "best_val_rmse": 20877.866557672984,
+      "best_val_r2": 0.9438058733940125,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed2026.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e4_wide_128_64_seed2026.json"
+    },
+    {
+      "run_name": "e5_weight_decay_1e4_seed2026",
+      "config_name": "e5_weight_decay_1e4",
+      "description": "Reference with weight decay changed from 1e-5 to 1e-4",
+      "seed": 2026,
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "dropout": 0.05,
+      "weight_decay": 0.0001,
+      "learning_rate": 0.001,
+      "standardize_inputs": true,
+      "standardize_target": true,
+      "trainable_parameters": 18881,
+      "best_epoch": 60,
+      "epochs_run": 90,
+      "best_val_mae": 14076.3662109375,
+      "best_val_rmse": 20837.682020800683,
+      "best_val_r2": 0.944021999835968,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "checkpoint": "checkpoints\\part_a\\model_e5_weight_decay_1e4_seed2026.pt",
+      "history": "workshop2_deep_learning\\results\\part_a\\history_e5_weight_decay_1e4_seed2026.json"
+    }
+  ],
+  "stability": [
+    {
+      "config_name": "e4_wide_128_64",
+      "n_seeds": 3,
+      "seeds": [
+        42,
+        7,
+        2026
+      ],
+      "mae_mean": 14238.788411458334,
+      "mae_std": 183.9526508437191,
+      "mae_min": 14051.46484375,
+      "mae_max": 14419.173828125,
+      "rmse_mean": 20779.543876213927,
+      "r2_mean": 0.9443323612213135
+    },
+    {
+      "config_name": "e5_weight_decay_1e4",
+      "n_seeds": 3,
+      "seeds": [
+        42,
+        7,
+        2026
+      ],
+      "mae_mean": 14379.1484375,
+      "mae_std": 1037.553816165297,
+      "mae_min": 13526.6669921875,
+      "mae_max": 15534.412109375,
+      "rmse_mean": 21415.29935701276,
+      "r2_mean": 0.9405359228452047
+    },
+    {
+      "config_name": "experiment2_reference",
+      "n_seeds": 3,
+      "seeds": [
+        42,
+        7,
+        2026
+      ],
+      "mae_mean": 14695.305989583334,
+      "mae_std": 1021.9408265101431,
+      "mae_min": 13868.751953125,
+      "mae_max": 15837.9453125,
+      "rmse_mean": 21669.047102354813,
+      "r2_mean": 0.9390379190444946
+    },
+    {
+      "config_name": "a1_no_input_standardization",
+      "n_seeds": 1,
+      "seeds": [
+        42
+      ],
+      "mae_mean": 15696.5908203125,
+      "mae_std": null,
+      "mae_min": 15696.5908203125,
+      "mae_max": 15696.5908203125,
+      "rmse_mean": 26301.793094768273,
+      "r2_mean": 0.9108155369758606
+    },
+    {
+      "config_name": "e6_learning_rate_5e4",
+      "n_seeds": 1,
+      "seeds": [
+        42
+      ],
+      "mae_mean": 16341.5478515625,
+      "mae_std": null,
+      "mae_min": 16341.5478515625,
+      "mae_max": 16341.5478515625,
+      "rmse_mean": 25099.41449516303,
+      "r2_mean": 0.9187832474708557
+    },
+    {
+      "config_name": "e3_no_dropout",
+      "n_seeds": 1,
+      "seeds": [
+        42
+      ],
+      "mae_mean": 19330.27734375,
+      "mae_std": null,
+      "mae_min": 19330.27734375,
+      "mae_max": 19330.27734375,
+      "rmse_mean": 28932.337064260813,
+      "r2_mean": 0.8920840620994568
+    },
+    {
+      "config_name": "a2_no_target_standardization",
+      "n_seeds": 1,
+      "seeds": [
+        42
+      ],
+      "mae_mean": 34600.953125,
+      "mae_std": null,
+      "mae_min": 34600.953125,
+      "mae_max": 34600.953125,
+      "rmse_mean": 56754.417766373044,
+      "r2_mean": 0.5847420692443848
+    }
+  ],
+  "selected_configuration": {
+    "config_name": "e4_wide_128_64",
+    "n_seeds": 3,
+    "seeds": [
+      42,
+      7,
+      2026
+    ],
+    "mae_mean": 14238.788411458334,
+    "mae_std": 183.9526508437191,
+    "mae_min": 14051.46484375,
+    "mae_max": 14419.173828125,
+    "rmse_mean": 20779.543876213927,
+    "r2_mean": 0.9443323612213135
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "seed": 7,
+    "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed7.pt",
+    "MAE": 16746.038307883522,
+    "RMSE": 39594.05508230537,
+    "R2": 0.7959406706692999,
+    "RMSE_log": 0.13546132294122476,
+    "used_for_model_selection": false
+  },
+  {
+    "seed": 42,
+    "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt",
+    "MAE": 14666.230637428976,
+    "RMSE": 34133.70511819103,
+    "R2": 0.8483426881871277,
+    "RMSE_log": 0.12540387206018228,
+    "used_for_model_selection": false
+  },
+  {
+    "seed": 2026,
+    "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed2026.pt",
+    "MAE": 15795.350754616476,
+    "RMSE": 32770.37737009266,
+    "R2": 0.86021538513219,
+    "RMSE_log": 0.1283791807231922,
+    "used_for_model_selection": false
+  }
+]

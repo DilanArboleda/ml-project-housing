@@ -1,0 +1,64 @@
+{
+  "n_samples": 2048,
+  "n_features": 261,
+  "target_log": {
+    "min": 9.456418991088867,
+    "mean": 12.013993263244629,
+    "std": 0.39535337686538696,
+    "max": 13.53447437286377
+  },
+  "input_before_additional_standardization": {
+    "min": -4.0,
+    "max": 15500.0,
+    "global_std": 36.089019775390625,
+    "values_abs_gt_100": 741,
+    "largest_feature_maxima": [
+      {
+        "feature": "Misc Val",
+        "max_abs": 15500.0
+      },
+      {
+        "feature": "BsmtFin SF 2",
+        "max_abs": 1526.0
+      },
+      {
+        "feature": "Low Qual Fin SF",
+        "max_abs": 1064.0
+      },
+      {
+        "feature": "Enclosed Porch",
+        "max_abs": 1012.0
+      },
+      {
+        "feature": "Pool Area",
+        "max_abs": 800.0
+      },
+      {
+        "feature": "Screen Porch",
+        "max_abs": 576.0
+      },
+      {
+        "feature": "3Ssn Porch",
+        "max_abs": 508.0
+      },
+      {
+        "feature": "Lot Area",
+        "max_abs": 37.998653411865234
+      },
+      {
+        "feature": "Lot Frontage",
+        "max_abs": 13.61111068725586
+      },
+      {
+        "feature": "Open Porch SF",
+        "max_abs": 10.529411315917969
+      }
+    ]
+  },
+  "input_after_additional_standardization": {
+    "min": -26.108747482299805,
+    "max": 45.24378204345703,
+    "mean": 2.2837027824351708e-09,
+    "std": 1.0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "experiment": 2,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "best_epoch": 75,
+  "best_validation_mae": 15837.9453125,
+  "epochs_run": 105,
+  "trainable_parameters": 18881,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "learning_rate": 0.001,
+  "weight_decay": 1e-05,
+  "target_log_mean_train_only": 12.013993263244629,
+  "target_log_scale_train_only": 0.39535337686538696
+}

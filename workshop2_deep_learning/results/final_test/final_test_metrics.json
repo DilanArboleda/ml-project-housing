@@ -1,0 +1,151 @@
+{
+  "evaluation_status": "final_test_evaluation",
+  "selection_frozen_before_test": true,
+  "selection_source": "workshop2_deep_learning\\results\\part_a\\experiment_manifest.json",
+  "selected_configuration": {
+    "config_name": "e4_wide_128_64",
+    "n_seeds": 3,
+    "seeds": [
+      42,
+      7,
+      2026
+    ],
+    "mae_mean": 14238.788411458334,
+    "mae_std": 183.9526508437191,
+    "mae_min": 14051.46484375,
+    "mae_max": 14419.173828125,
+    "rmse_mean": 20779.543876213927,
+    "r2_mean": 0.9443323612213135
+  },
+  "selected_checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt",
+  "selected_seed": 42,
+  "test_set": {
+    "n_observations": 440,
+    "split_indices_sha256": "90596065fefdcddd60780800d95468600b2c62e6ab0bfd60d9459b528be56e32",
+    "targets_sha256": "6dbf57836d6e25257458e808e1de05dab1e07f199bb5394892c750a22df29b54",
+    "first_split_index": 29,
+    "last_split_index": 2916
+  },
+  "metrics": {
+    "Deep Learning MLP": {
+      "MAE": 14666.230637428976,
+      "RMSE": 34133.70511819103,
+      "R2": 0.8483426881871277,
+      "RMSE_log": 0.12540387206018228
+    },
+    "Ridge Regression": {
+      "MAE": 15031.511373952511,
+      "RMSE": 44511.46983852259,
+      "R2": 0.7421065213328986,
+      "RMSE_log": 0.12541567267491613
+    },
+    "Random Forest": {
+      "MAE": 16700.757585695996,
+      "RMSE": 31325.664694848838,
+      "R2": 0.8722687744659192,
+      "RMSE_log": 0.13249835417122713
+    },
+    "Gradient Boosting": {
+      "MAE": 14876.802557573947,
+      "RMSE": 31939.29040550996,
+      "R2": 0.8672156122359622,
+      "RMSE_log": 0.12082321505385471
+    }
+  },
+  "baseline_metrics_source": "workshop1_supervised\\results\\baseline_metrics.json",
+  "baseline_reconstruction_audit": {
+    "Ridge Regression": {
+      "stored_test_metrics": {
+        "MAE": 15031.511373952511,
+        "RMSE": 44511.46983852259,
+        "R2": 0.7421065213328986,
+        "RMSE_log": 0.12541567267491613
+      },
+      "reconstructed_test_metrics": {
+        "MAE": 15030.794731250155,
+        "RMSE": 44507.97769094699,
+        "R2": 0.7421469858136801,
+        "RMSE_log": 0.12541254926354117
+      },
+      "absolute_difference": {
+        "MAE": 0.7166427023566939,
+        "RMSE": 3.492147575605486,
+        "R2": 4.046448078154352e-05,
+        "RMSE_log": 3.1234113749556425e-06
+      },
+      "exact_within_1e-6": false
+    },
+    "Random Forest": {
+      "stored_test_metrics": {
+        "MAE": 16700.757585695996,
+        "RMSE": 31325.664694848838,
+        "R2": 0.8722687744659192,
+        "RMSE_log": 0.13249835417122713
+      },
+      "reconstructed_test_metrics": {
+        "MAE": 16686.01033026008,
+        "RMSE": 31044.28694446952,
+        "R2": 0.8745531192259698,
+        "RMSE_log": 0.1322995747738129
+      },
+      "absolute_difference": {
+        "MAE": 14.747255435915577,
+        "RMSE": 281.37775037931715,
+        "R2": 0.0022843447600505717,
+        "RMSE_log": 0.00019877939741422268
+      },
+      "exact_within_1e-6": false
+    },
+    "Gradient Boosting": {
+      "stored_test_metrics": {
+        "MAE": 14876.802557573947,
+        "RMSE": 31939.29040550996,
+        "R2": 0.8672156122359622,
+        "RMSE_log": 0.12082321505385471
+      },
+      "reconstructed_test_metrics": {
+        "MAE": 14731.46708304732,
+        "RMSE": 32584.33108592452,
+        "R2": 0.8617980697125447,
+        "RMSE_log": 0.11966052784085393
+      },
+      "absolute_difference": {
+        "MAE": 145.33547452662606,
+        "RMSE": 645.0406804145605,
+        "R2": 0.005417542523417529,
+        "RMSE_log": 0.0011626872130007793
+      },
+      "exact_within_1e-6": false
+    }
+  },
+  "baseline_reconstruction_note": "Predictions were reconstructed with the frozen Workshop 1 definitions for plots. Small differences from the stored metrics are retained explicitly and are consistent with numerical/library version variation; the comparison table uses the immutable Workshop 1 metrics.",
+  "additional_seed_description_not_used_for_selection": [
+    {
+      "seed": 7,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed7.pt",
+      "MAE": 16746.038307883522,
+      "RMSE": 39594.05508230537,
+      "R2": 0.7959406706692999,
+      "RMSE_log": 0.13546132294122476,
+      "used_for_model_selection": false
+    },
+    {
+      "seed": 42,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt",
+      "MAE": 14666.230637428976,
+      "RMSE": 34133.70511819103,
+      "R2": 0.8483426881871277,
+      "RMSE_log": 0.12540387206018228,
+      "used_for_model_selection": false
+    },
+    {
+      "seed": 2026,
+      "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed2026.pt",
+      "MAE": 15795.350754616476,
+      "RMSE": 32770.37737009266,
+      "R2": 0.86021538513219,
+      "RMSE_log": 0.1283791807231922,
+      "used_for_model_selection": false
+    }
+  ]
+}

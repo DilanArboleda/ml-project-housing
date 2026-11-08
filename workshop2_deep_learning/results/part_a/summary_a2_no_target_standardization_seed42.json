@@ -1,0 +1,25 @@
+{
+  "run_name": "a2_no_target_standardization_seed42",
+  "config_name": "a2_no_target_standardization",
+  "description": "Ablation: train directly on log1p(SalePrice)",
+  "seed": 42,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.001,
+  "standardize_inputs": true,
+  "standardize_target": false,
+  "trainable_parameters": 18881,
+  "best_epoch": 152,
+  "epochs_run": 182,
+  "best_val_mae": 34600.953125,
+  "best_val_rmse": 56754.417766373044,
+  "best_val_r2": 0.5847420692443848,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_a2_no_target_standardization_seed42.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_a2_no_target_standardization_seed42.json"
+}
