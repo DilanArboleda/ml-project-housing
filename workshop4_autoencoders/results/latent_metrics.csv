@@ -1,0 +1,13 @@
+model,latent_dimension,grouping,silhouette_score,observations,clusters,minimum_cluster_size,group_handling,metric,space,computed_on_2d_projection
+AE z=128,128,Overall Qual,-0.04652540013194084,437,8,7,Categories with fewer than 5 test observations excluded,euclidean,per-model standardized original latent representation,False
+AE z=128,128,Neighborhood,-0.016587454825639725,440,18,10,Neighborhoods with fewer than 10 test observations grouped as Other,euclidean,per-model standardized original latent representation,False
+AE z=128,128,Normal vs Abnorml,0.1774950474500656,372,2,19,Only native Normal and Abnorml categories included,euclidean,per-model standardized original latent representation,False
+AE z=64,64,Overall Qual,-0.03597632795572281,437,8,7,Categories with fewer than 5 test observations excluded,euclidean,per-model standardized original latent representation,False
+AE z=64,64,Neighborhood,-0.02216671220958233,440,18,10,Neighborhoods with fewer than 10 test observations grouped as Other,euclidean,per-model standardized original latent representation,False
+AE z=64,64,Normal vs Abnorml,0.16100497543811798,372,2,19,Only native Normal and Abnorml categories included,euclidean,per-model standardized original latent representation,False
+VAE z=64 beta=0.5,64,Overall Qual,-0.3835512697696686,437,8,7,Categories with fewer than 5 test observations excluded,euclidean,per-model standardized original latent representation,False
+VAE z=64 beta=0.5,64,Neighborhood,-0.4668276607990265,440,18,10,Neighborhoods with fewer than 10 test observations grouped as Other,euclidean,per-model standardized original latent representation,False
+VAE z=64 beta=0.5,64,Normal vs Abnorml,0.5166163444519043,372,2,19,Only native Normal and Abnorml categories included,euclidean,per-model standardized original latent representation,False
+MLP z=64,64,Overall Qual,-0.01233767345547676,437,8,7,Categories with fewer than 5 test observations excluded,euclidean,per-model standardized original latent representation,False
+MLP z=64,64,Neighborhood,-0.13800449669361115,440,18,10,Neighborhoods with fewer than 10 test observations grouped as Other,euclidean,per-model standardized original latent representation,False
+MLP z=64,64,Normal vs Abnorml,0.2466467022895813,372,2,19,Only native Normal and Abnorml categories included,euclidean,per-model standardized original latent representation,False

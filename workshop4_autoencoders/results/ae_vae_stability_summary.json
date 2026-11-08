@@ -1,0 +1,36 @@
+[
+  {
+    "model_configuration": "AE z=128",
+    "seeds": [
+      7,
+      42,
+      2026
+    ],
+    "validation_mse_by_seed": [
+      0.44921829678961006,
+      0.45277109351280576,
+      0.46988527931991675
+    ],
+    "mean_validation_mse": 0.4572915565407776,
+    "std_validation_mse": 0.011050202768159741,
+    "min_validation_mse": 0.44921829678961006,
+    "max_validation_mse": 0.46988527931991675
+  },
+  {
+    "model_configuration": "VAE z=64 beta=0.5",
+    "seeds": [
+      7,
+      42,
+      2026
+    ],
+    "validation_mse_by_seed": [
+      0.853488296837049,
+      1.0127408961468816,
+      0.8968689600185418
+    ],
+    "mean_validation_mse": 0.9210327176674907,
+    "std_validation_mse": 0.08233020699914692,
+    "min_validation_mse": 0.853488296837049,
+    "max_validation_mse": 1.0127408961468816
+  }
+]

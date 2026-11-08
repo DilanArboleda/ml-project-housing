@@ -1,0 +1,4 @@
+model,latent_dim,hidden_dims,parameter_count,seed,learning_rate,batch_size,epochs_run,best_epoch,best_validation_mse,training_time_seconds,checkpoint,checkpoint_reload_exact,selection_partition,test_partition_used,input_dim
+AE,32,192-128,158886,42,0.001,64,50,50,0.5251260729650091,26.033369300188497,checkpoints\ae_latent_32.pt,True,validation,False,262
+AE,64,192-128,167110,42,0.001,64,50,50,0.49225994165699816,75.62461939989589,checkpoints\ae_latent_64.pt,True,validation,False,262
+AE,128,192-128,183558,42,0.001,64,50,50,0.45277109351280576,37.51393110002391,checkpoints\ae_latent_128.pt,True,validation,False,262
