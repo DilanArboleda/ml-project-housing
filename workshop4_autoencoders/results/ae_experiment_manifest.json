@@ -1,0 +1,110 @@
+{
+  "protocol": {
+    "split_file": "data/splits.json",
+    "split_file_sha256": "cb2572a0e61676c02c5957107a59975353cbaffd2750f5baf3d7a46d3208683f",
+    "selection_partition": "validation",
+    "selection_metric": "minimum validation reconstruction MSE",
+    "test_partition_used": false,
+    "latent_dimensions": [
+      32,
+      64,
+      128
+    ],
+    "seed": 42
+  },
+  "data": {
+    "input_dim": 262,
+    "train_rows": 2050,
+    "validation_rows": 440,
+    "test_rows_prepared_but_not_evaluated": 440,
+    "excluded_input_columns": [
+      "Unnamed: 0",
+      "Order",
+      "PID",
+      "SalePrice"
+    ]
+  },
+  "runs": [
+    {
+      "model": "AE",
+      "latent_dim": 32,
+      "hidden_dims": "192-128",
+      "parameter_count": 158886,
+      "seed": 42,
+      "learning_rate": 0.001,
+      "batch_size": 64,
+      "epochs_run": 50,
+      "best_epoch": 50,
+      "best_validation_mse": 0.5251260729650091,
+      "training_time_seconds": 26.033369300188497,
+      "checkpoint": "checkpoints\\ae_latent_32.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "input_dim": 262
+    },
+    {
+      "model": "AE",
+      "latent_dim": 64,
+      "hidden_dims": "192-128",
+      "parameter_count": 167110,
+      "seed": 42,
+      "learning_rate": 0.001,
+      "batch_size": 64,
+      "epochs_run": 50,
+      "best_epoch": 50,
+      "best_validation_mse": 0.49225994165699816,
+      "training_time_seconds": 75.62461939989589,
+      "checkpoint": "checkpoints\\ae_latent_64.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "input_dim": 262
+    },
+    {
+      "model": "AE",
+      "latent_dim": 128,
+      "hidden_dims": "192-128",
+      "parameter_count": 183558,
+      "seed": 42,
+      "learning_rate": 0.001,
+      "batch_size": 64,
+      "epochs_run": 50,
+      "best_epoch": 50,
+      "best_validation_mse": 0.45277109351280576,
+      "training_time_seconds": 37.51393110002391,
+      "checkpoint": "checkpoints\\ae_latent_128.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false,
+      "input_dim": 262
+    }
+  ],
+  "selected_model": {
+    "model": "AE",
+    "latent_dim": 128,
+    "hidden_dims": "192-128",
+    "parameter_count": 183558,
+    "seed": 42,
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "epochs_run": 50,
+    "best_epoch": 50,
+    "best_validation_mse": 0.45277109351280576,
+    "training_time_seconds": 37.51393110002391,
+    "checkpoint": "checkpoints\\ae_latent_128.pt",
+    "checkpoint_reload_exact": true,
+    "selection_partition": "validation",
+    "test_partition_used": false,
+    "input_dim": 262
+  },
+  "artifacts": {
+    "comparison_table": "results\\ae_comparison.csv",
+    "report": "results\\ae_experimental_comparison.md",
+    "figures": [
+      "results\\figures\\ae_training_curves.png",
+      "results\\figures\\ae_validation_mse_comparison.png"
+    ],
+    "best_checkpoint": "checkpoints/ae_best.pt"
+  }
+}

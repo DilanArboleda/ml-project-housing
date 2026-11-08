@@ -1,38 +1,75 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[11pt,a4paper]{article}
 
+\usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{cite}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{microtype}
+\usepackage{mathptmx}
 \usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\floatsep}{1.1em}
+\setlength{\textfloatsep}{1.2em}
+\setlength{\intextsep}{1.1em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.15}
+\setcounter{tocdepth}{2}
 
 \makeatletter
 \setlength{\@fptop}{0pt}
-\setlength{\@dblfptop}{0pt}
+\setlength{\@fpsep}{1.5em}
+\setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
 
-\title{Leakage-Aware MLP Regression for Ames Housing:\\
+\newcommand{\reporttitle}{Leakage-Aware MLP Regression for Ames Housing:\\[0.35em]
 A Controlled Comparison with Classical Baselines}
 
-\author{
-\IEEEauthorblockN{Miguel Alejandro Ch\'avez Porras, Luisa Fernanda Guerrero Ordo\~nez,\\
-Dilan Stive Arboleda Zambrano}
-\IEEEauthorblockA{Computer Engineering Program, Faculty of Engineering\\
-Universidad Distrital Francisco Jos\'e de Caldas, Bogot\'a, Colombia\\
-Student IDs: 20212020033, 20212020099, 20212020105}
-}
-
 \begin{document}
-\maketitle
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{1.0cm}
+{\Large\bfseries Universidad Distrital Francisco Jos\'e de Caldas\par}
+\vspace{0.55cm}
+{\large Faculty of Engineering\par}
+{\large Computer Engineering Program\par}
+
+\vfill
+{\Large\bfseries Workshop 2 -- Advanced Learning Models (Part A)\par}
+\vspace{0.8cm}
+{\LARGE\bfseries \reporttitle\par}
+
+\vfill
+{\large\bfseries Group 1 Authors\par}
+\vspace{0.5cm}
+{\large Miguel Alejandro Ch\'avez Porras -- 20212020033\par}
+{\large Luisa Fernanda Guerrero Ordo\~nez -- 20212020099\par}
+{\large Dilan Stive Arboleda Zambrano -- 20212020105\par}
+
+\vfill
+{\large Machine Learning -- Semester 2026-III\par}
+{\large Bogot\'a, Colombia\par}
+\vspace{0.5cm}
+{\large 2026\par}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
 
 \begin{abstract}
 Residential price prediction from heterogeneous tabular data requires nonlinear modeling while remaining robust to skewed targets, sparse categories, and rare high-value transactions. This work develops a leakage-aware multilayer perceptron (MLP) for the Ames Housing dataset, diagnoses an initial optimization failure, and evaluates controlled changes in architecture, dropout, weight decay, learning rate, and train-only standardization. The selected 261-128-64-1 network achieved a test mean absolute error (MAE) of \$14,666.23 on 440 held-out properties, improving the Workshop 1 Ridge, Random Forest, and Gradient Boosting baselines by 2.43\%, 12.18\%, and 1.42\%, respectively. Random Forest nevertheless retained the best root mean squared error and coefficient of determination, while Gradient Boosting retained the best logarithmic error. The results show that target conditioning and stable validation procedures can make an MLP competitive on a small tabular dataset, but do not establish universal neural-network superiority.
 \end{abstract}
 
-\begin{IEEEkeywords}
-Ames Housing, multilayer perceptron, regression, tabular data, reproducibility, model comparison
-\end{IEEEkeywords}
+\noindent\textbf{Keywords:} Ames Housing, multilayer perceptron, regression, tabular data, reproducibility, model comparison.
 
 \section{Introduction}
 Automated residential valuation supports taxation, lending, investment, and market analysis, but accurate estimation is difficult because price depends on heterogeneous physical, temporal, quality, amenity, and location attributes. Ames Housing was introduced by De Cock as a modern alternative to the Boston Housing dataset and contains 2,930 sales recorded in Ames, Iowa, from 2006 to 2010, with 80 explanatory variables spanning nominal, ordinal, discrete, and continuous measurements \cite{decock2011}. Structural missingness, rare categories, nonlinear interactions, and a right-skewed price distribution make it a useful supervised-regression benchmark.
@@ -62,12 +99,12 @@ where $\mu_{\mathrm{train}}=12.013993$ and $\sigma_{\mathrm{train}}=0.395353$. I
 \end{equation}
 Every imputation, encoding, and scaling statistic is therefore learned without validation or test information.
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.98\textwidth]{figures/methodology_overview.pdf}
 \caption{Leakage-aware methodology. (a) Data operations and selection order; (b) exact selected architecture, including dropout after both hidden ReLU layers; and (c) training-target transformation and inverse mapping used before dollar-scale metrics.}
 \label{fig:methodology}
-\end{figure*}
+\end{figure}
 
 \subsection{Network and Training Protocol}
 Figure~\ref{fig:methodology} summarizes the complete workflow and selected architecture. The final MLP maps 261 inputs through hidden layers of 128 and 64 ReLU units. Dropout with probability 0.05 follows each hidden activation, and a final linear unit predicts the standardized log target. The model contains 41,857 trainable parameters. Hidden weights use Kaiming normal initialization, the output weights use Xavier uniform initialization, and all biases start at zero.
@@ -81,7 +118,7 @@ The initial network used hidden widths 128-64-32, dropout 0.20, Adam, learning r
 
 Experiment 2 introduced train-only standardization of inputs and target, reduced the network to 64-32, lowered dropout to 0.05, changed Adam to AdamW, and added matched initialization, scheduling, and clipping. Table~\ref{tab:initial} shows the resulting 79.69\% MAE reduction. Because multiple changes were applied together, subsequent controlled experiments isolated their effects where possible.
 
-\begin{table}[!t]
+\begin{table}[htbp]
 \caption{Initial Diagnosis and Corrected Reference}
 \label{tab:initial}
 \centering
@@ -103,11 +140,12 @@ $R^2$ & -2.9268 & 0.9243 \\
 \subsection{Controlled Comparison, Ablations, and Selection}
 All seed-42 comparisons reuse the same 2,048 effective training rows and 440 validation rows. The experiment-2 reference uses 64-32 hidden units, dropout 0.05, weight decay $10^{-5}$, and learning rate $10^{-3}$. Four runs change one factor: dropout to 0, architecture to 128-64, weight decay to $10^{-4}$, or learning rate to $5\times10^{-4}$. Two ablations remove the additional input standardization or target standardization.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \caption{Controlled Validation Experiments with Seed 42}
 \label{tab:validation}
 \centering
 \small
+\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{llllrrrr}
 \toprule
 ID & Hidden units & Changed factor & Standardization & Parameters & Epoch & MAE (USD) & $R^2$ \\
@@ -121,7 +159,7 @@ A1 & 64-32 & No extra input scaling & Target only & 18,881 & 75 & 15,696.59 & 0.
 A2 & 64-32 & No target scaling & Inputs only & 18,881 & 152 & 34,600.95 & 0.5847 \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 The reference and the two strongest non-ablation alternatives were repeated with seeds 7, 42, and 2026. Configuration selection used the lowest mean validation MAE across the three seeds. The 128-64 model achieved $14,238.79\pm183.95$, compared with $14,379.15\pm1,037.55$ for weight decay $10^{-4}$ and $14,695.31\pm1,021.94$ for the reference. Although stronger weight decay produced the best single run (\$13,526.67 at seed 7), its variability made it a less reliable choice. Among the three already-selected 128-64 runs, seed 42 had the lowest validation MAE (\$14,051.46) and was frozen before test evaluation.
 
@@ -132,31 +170,31 @@ Figure~\ref{fig:experiments}(a) shows that target and input conditioning elimina
 
 Removing dropout worsened MAE by \$3,492.33, consistent with overfitting. Increasing weight decay improved the seed-42 reference by \$303.53 but was unstable across seeds. Lowering the initial learning rate worsened MAE by \$503.60. Expanding the network to 128-64 produced the most consistent gain: under seed 42 it reduced MAE by \$1,786.48 (11.28\%) relative to experiment 2, and across seeds it had the lowest mean and standard deviation. The learning curves in Fig.~\ref{fig:loss} also show a persistent train-validation gap, so the selected checkpoint is determined by validation MAE rather than final training loss.
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.98\textwidth]{figures/experimental_summary.pdf}
 \caption{Optimization and model-selection evidence. (a) Validation MAE before and after conditioning; (b) controlled seed-42 comparison, including the Workshop 1 Ridge validation reference; and (c) mean $\pm$ standard deviation over seeds 7, 42, and 2026.}
 \label{fig:experiments}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.88\textwidth]{../results/figures/part_a/loss_curves_seed42.png}
+\includegraphics[width=0.96\textwidth]{../results/figures/part_a/loss_curves_seed42.png}
 \caption{Training (dashed) and validation (solid) MSE for the controlled seed-42 experiments. The logarithmic vertical scale exposes the failed no-target-standardization ablation and the train-validation separation.}
 \label{fig:loss}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[!t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.94\textwidth]{figures/final_diagnostics.pdf}
 \caption{Fixed-test diagnostics. (a) MLP actual versus predicted prices; (b) residuals versus predicted price; (c) residual distribution, with the extreme error marked; and (d) dollar-scale comparison with Workshop 1 baselines. Red crosses or dotted lines identify the largest absolute MLP residual.}
 \label{fig:diagnostics}
-\end{figure*}
+\end{figure}
 
 \subsection{Final Test Comparison}
 The frozen seed-42 checkpoint was loaded without retraining and evaluated once on the 440 fixed test properties. Input normalization uses checkpoint statistics, and output inversion precedes all metrics. Table~\ref{tab:test} uses the immutable Workshop 1 test metrics and the new MLP metrics under the same definitions: MAE and RMSE in dollars, dollar-scale $R^2$, and RMSE on $\log(1+y)$.
 
-\begin{table*}[!t]
+\begin{table}[htbp]
 \caption{Definitive Performance on the Fixed Test Partition ($N=440$)}
 \label{tab:test}
 \centering
@@ -170,7 +208,7 @@ Random Forest & 16,700.76 & \textbf{31,325.66} & \textbf{0.8723} & 0.1325 \\
 Gradient Boosting & 14,876.80 & 31,939.29 & 0.8672 & \textbf{0.1208} \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 The MLP achieved the smallest MAE, improving Ridge by \$365.28 (2.43\%), Random Forest by \$2,034.53 (12.18\%), and Gradient Boosting by \$210.57 (1.42\%). Its test MAE was 4.38\% above its validation MAE. The ranking changes with the metric: Random Forest obtained the best RMSE and $R^2$, while Gradient Boosting obtained the best logarithmic error. Therefore, the MLP improved typical absolute dollar deviation on this split but did not dominate squared-error or relative-error behavior.
 

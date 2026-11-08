@@ -1,0 +1,302 @@
+{
+  "protocol": {
+    "input_dim": 262,
+    "latent_dim": 64,
+    "betas": [
+      0.5,
+      1.0,
+      4.0
+    ],
+    "warmup_epochs": 10,
+    "selection_partition": "validation",
+    "selection_rule": "minimum validation reconstruction MSE among runs without severe posterior collapse",
+    "test_partition_used": false,
+    "split_file": "data/splits.json",
+    "split_file_sha256": "cb2572a0e61676c02c5957107a59975353cbaffd2750f5baf3d7a46d3208683f",
+    "stability_seeds": [
+      7,
+      42,
+      2026
+    ],
+    "objective_is_exact_elbo": false
+  },
+  "loss_scaling": {
+    "reconstruction_mse": "averaged over observations and input features",
+    "reported_kl": "summed over latent dimensions and averaged over observations",
+    "objective_kl": "reported KL divided by latent dimension"
+  },
+  "beta_runs_seed42": [
+    {
+      "model": "VAE",
+      "target_beta": 0.5,
+      "latent_dim": 64,
+      "parameter_count": 175366,
+      "seed": 42,
+      "epochs_run": 50,
+      "best_epoch": 50,
+      "validation_reconstruction_mse": 1.0127408961468816,
+      "validation_kl_per_observation": 0.6269405473362316,
+      "validation_kl_per_latent": 0.009795946052128619,
+      "validation_total_objective": 1.0176388691729459,
+      "validation_active_units": 34,
+      "validation_mean_latent_variance": 0.015140211209654808,
+      "minimum_active_units_at_full_beta": 21,
+      "final_active_units": 34,
+      "final_kl_per_latent": 0.009795946052128619,
+      "effective_beta_at_best_epoch": 0.5,
+      "posterior_collapse_detected": false,
+      "training_time_seconds": 22.027911900077015,
+      "checkpoint": "checkpoints\\vae_beta_0_5.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false
+    },
+    {
+      "model": "VAE",
+      "target_beta": 1.0,
+      "latent_dim": 64,
+      "parameter_count": 175366,
+      "seed": 42,
+      "epochs_run": 40,
+      "best_epoch": 30,
+      "validation_reconstruction_mse": 1.0215781260165466,
+      "validation_kl_per_observation": 0.286190064386888,
+      "validation_kl_per_latent": 0.004471719756045125,
+      "validation_total_objective": 1.0260498457725917,
+      "validation_active_units": 9,
+      "validation_mean_latent_variance": 0.006006194278597832,
+      "minimum_active_units_at_full_beta": 2,
+      "final_active_units": 2,
+      "final_kl_per_latent": 0.0038346945054151794,
+      "effective_beta_at_best_epoch": 1.0,
+      "posterior_collapse_detected": true,
+      "training_time_seconds": 63.6510681998916,
+      "checkpoint": "checkpoints\\vae_beta_1_0.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false
+    },
+    {
+      "model": "VAE",
+      "target_beta": 4.0,
+      "latent_dim": 64,
+      "parameter_count": 175366,
+      "seed": 42,
+      "epochs_run": 47,
+      "best_epoch": 37,
+      "validation_reconstruction_mse": 1.021564250154515,
+      "validation_kl_per_observation": 0.22749212763526222,
+      "validation_kl_per_latent": 0.003554564494300972,
+      "validation_total_objective": 1.035782508131719,
+      "validation_active_units": 3,
+      "validation_mean_latent_variance": 0.004668144043534994,
+      "minimum_active_units_at_full_beta": 3,
+      "final_active_units": 3,
+      "final_kl_per_latent": 0.0034390918995169076,
+      "effective_beta_at_best_epoch": 4.0,
+      "posterior_collapse_detected": true,
+      "training_time_seconds": 69.20334819983691,
+      "checkpoint": "checkpoints\\vae_beta_4_0.pt",
+      "checkpoint_reload_exact": true,
+      "selection_partition": "validation",
+      "test_partition_used": false
+    }
+  ],
+  "selected_vae": {
+    "model": "VAE",
+    "target_beta": 0.5,
+    "latent_dim": 64,
+    "parameter_count": 175366,
+    "seed": 42,
+    "epochs_run": 50,
+    "best_epoch": 50,
+    "validation_reconstruction_mse": 1.0127408961468816,
+    "validation_kl_per_observation": 0.6269405473362316,
+    "validation_kl_per_latent": 0.009795946052128619,
+    "validation_total_objective": 1.0176388691729459,
+    "validation_active_units": 34,
+    "validation_mean_latent_variance": 0.015140211209654808,
+    "minimum_active_units_at_full_beta": 21,
+    "final_active_units": 34,
+    "final_kl_per_latent": 0.009795946052128619,
+    "effective_beta_at_best_epoch": 0.5,
+    "posterior_collapse_detected": false,
+    "training_time_seconds": 22.027911900077015,
+    "checkpoint": "checkpoints\\vae_beta_0_5.pt",
+    "checkpoint_reload_exact": true,
+    "selection_partition": "validation",
+    "test_partition_used": false
+  },
+  "ae64_validation_mse": 0.49225994165699816,
+  "stability_runs": {
+    "vae": [
+      {
+        "model": "VAE",
+        "target_beta": 0.5,
+        "latent_dim": 64,
+        "parameter_count": 175366,
+        "seed": 7,
+        "epochs_run": 50,
+        "best_epoch": 50,
+        "validation_reconstruction_mse": 0.853488296837049,
+        "validation_kl_per_observation": 4.696383944424716,
+        "validation_kl_per_latent": 0.07338099913163619,
+        "validation_total_objective": 0.890178796402867,
+        "validation_active_units": 64,
+        "validation_mean_latent_variance": 0.11669784039258957,
+        "minimum_active_units_at_full_beta": 64,
+        "final_active_units": 64,
+        "final_kl_per_latent": 0.07338099913163619,
+        "effective_beta_at_best_epoch": 0.5,
+        "posterior_collapse_detected": false,
+        "training_time_seconds": 45.61582659976557,
+        "checkpoint": "checkpoints\\vae_beta_0_5_seed7.pt",
+        "checkpoint_reload_exact": true,
+        "selection_partition": "validation",
+        "test_partition_used": false
+      },
+      {
+        "model": "VAE",
+        "target_beta": 0.5,
+        "latent_dim": 64,
+        "parameter_count": 175366,
+        "seed": 42,
+        "epochs_run": 50,
+        "best_epoch": 50,
+        "validation_reconstruction_mse": 1.0127408961468816,
+        "validation_kl_per_observation": 0.6269405473362316,
+        "validation_kl_per_latent": 0.009795946052128619,
+        "validation_total_objective": 1.0176388691729459,
+        "validation_active_units": 34,
+        "validation_mean_latent_variance": 0.015140211209654808,
+        "minimum_active_units_at_full_beta": 21,
+        "final_active_units": 34,
+        "final_kl_per_latent": 0.009795946052128619,
+        "effective_beta_at_best_epoch": 0.5,
+        "posterior_collapse_detected": false,
+        "training_time_seconds": 22.027911900077015,
+        "checkpoint": "checkpoints\\vae_beta_0_5.pt",
+        "checkpoint_reload_exact": true,
+        "selection_partition": "validation",
+        "test_partition_used": false
+      },
+      {
+        "model": "VAE",
+        "target_beta": 0.5,
+        "latent_dim": 64,
+        "parameter_count": 175366,
+        "seed": 2026,
+        "epochs_run": 50,
+        "best_epoch": 49,
+        "validation_reconstruction_mse": 0.8968689600185418,
+        "validation_kl_per_observation": 3.2128163424405183,
+        "validation_kl_per_latent": 0.0502002553506331,
+        "validation_total_objective": 0.9219690876938583,
+        "validation_active_units": 64,
+        "validation_mean_latent_variance": 0.08008405566215515,
+        "minimum_active_units_at_full_beta": 62,
+        "final_active_units": 64,
+        "final_kl_per_latent": 0.05949265306646174,
+        "effective_beta_at_best_epoch": 0.5,
+        "posterior_collapse_detected": false,
+        "training_time_seconds": 68.03560339985415,
+        "checkpoint": "checkpoints\\vae_beta_0_5_seed2026.pt",
+        "checkpoint_reload_exact": true,
+        "selection_partition": "validation",
+        "test_partition_used": false
+      }
+    ],
+    "ae128": [
+      {
+        "model": "AE",
+        "latent_dim": 128,
+        "seed": 7,
+        "best_epoch": 49,
+        "validation_reconstruction_mse": 0.44921829678961006,
+        "parameter_count": 183558,
+        "checkpoint": "checkpoints\\ae_latent_128_seed7.pt",
+        "checkpoint_reload_exact": true,
+        "test_partition_used": false
+      },
+      {
+        "model": "AE",
+        "latent_dim": 128,
+        "seed": 42,
+        "best_epoch": 50,
+        "validation_reconstruction_mse": 0.45277109351280576,
+        "parameter_count": 183558,
+        "checkpoint": "checkpoints\\ae_latent_128.pt",
+        "checkpoint_reload_exact": true,
+        "test_partition_used": false
+      },
+      {
+        "model": "AE",
+        "latent_dim": 128,
+        "seed": 2026,
+        "best_epoch": 48,
+        "validation_reconstruction_mse": 0.46988527931991675,
+        "parameter_count": 183558,
+        "checkpoint": "checkpoints\\ae_latent_128_seed2026.pt",
+        "checkpoint_reload_exact": true,
+        "test_partition_used": false
+      }
+    ],
+    "summary": [
+      {
+        "model_configuration": "AE z=128",
+        "seeds": [
+          7,
+          42,
+          2026
+        ],
+        "validation_mse_by_seed": [
+          0.44921829678961006,
+          0.45277109351280576,
+          0.46988527931991675
+        ],
+        "mean_validation_mse": 0.4572915565407776,
+        "std_validation_mse": 0.011050202768159741,
+        "min_validation_mse": 0.44921829678961006,
+        "max_validation_mse": 0.46988527931991675
+      },
+      {
+        "model_configuration": "VAE z=64 beta=0.5",
+        "seeds": [
+          7,
+          42,
+          2026
+        ],
+        "validation_mse_by_seed": [
+          0.853488296837049,
+          1.0127408961468816,
+          0.8968689600185418
+        ],
+        "mean_validation_mse": 0.9210327176674907,
+        "std_validation_mse": 0.08233020699914692,
+        "min_validation_mse": 0.853488296837049,
+        "max_validation_mse": 1.0127408961468816
+      }
+    ]
+  },
+  "existing_ae_checkpoint_hashes_verified": {
+    "ae_latent_32.pt": "cf0102ebf2c82dac7d80c7241a33872ac11941b6b5d4baa30d132bf6308d82b5",
+    "ae_latent_64.pt": "011f181f9c9caead994abd7c29d54aa53160287a230dbed4796ac57a3ad25b58",
+    "ae_latent_128.pt": "91bfadc0949319edcb1eb60c8980235d26c7eb5222d9e628c41b59c38616492c",
+    "ae_best.pt": "91bfadc0949319edcb1eb60c8980235d26c7eb5222d9e628c41b59c38616492c"
+  },
+  "artifacts": {
+    "comparison_table": "results/vae_comparison.csv",
+    "stability_figure": "results\\figures\\ae_vae_seed_stability.png",
+    "report": "results\\vae_experimental_comparison.md",
+    "figures": [
+      "results\\figures\\vae_reconstruction_curves.png",
+      "results\\figures\\vae_kl_curves.png",
+      "results\\figures\\vae_total_objective_curves.png",
+      "results\\figures\\vae_validation_reconstruction_by_beta.png",
+      "results\\figures\\vae_kl_reconstruction_tradeoff.png",
+      "results\\figures\\ae64_vae_validation_comparison.png",
+      "results\\figures\\ae_vae_seed_stability.png"
+    ],
+    "best_checkpoint": "checkpoints/vae_best.pt"
+  }
+}

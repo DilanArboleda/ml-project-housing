@@ -1,0 +1,7 @@
+model,feature_group,feature_count,reconstruction_mse,reconstruction_mae,pearson_correlation,evaluation_observations,scale
+AE,all,262,0.3992769718170166,0.35961058735847473,0.7622304881484075,440,train-standardized transformed feature space
+AE,continuous,62,0.44242554903030396,0.43808645009994507,0.7545138366065771,440,train-standardized transformed feature space
+AE,one_hot,200,0.3859008848667145,0.335283100605011,0.7648058213954652,440,train-standardized transformed feature space
+VAE,all,262,0.9403209686279297,0.41977807879447937,0.09147618828275812,440,train-standardized transformed feature space
+VAE,continuous,62,1.0177826881408691,0.7092413902282715,0.07501610496219119,440,train-standardized transformed feature space
+VAE,one_hot,200,0.9163078665733337,0.3300444185733795,0.09746912683745378,440,train-standardized transformed feature space

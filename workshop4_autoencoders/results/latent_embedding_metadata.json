@@ -1,0 +1,130 @@
+{
+  "test_observations": 440,
+  "test_indices_sha256": "90596065fefdcddd60780800d95468600b2c62e6ab0bfd60d9459b528be56e32",
+  "test_order_exact_across_models": true,
+  "deterministic_extraction": true,
+  "finite_representations": true,
+  "checkpoint_hashes": {
+    "AE z=128": "91bfadc0949319edcb1eb60c8980235d26c7eb5222d9e628c41b59c38616492c",
+    "AE z=64": "011f181f9c9caead994abd7c29d54aa53160287a230dbed4796ac57a3ad25b58",
+    "VAE z=64 beta=0.5": "3c916aeb8da593cba3f8adb21884e82c4d2d60d7df1d73e93b940f8e79983187",
+    "MLP z=64": "3ed12f21a70ca642bf443d5e22aaf7656ff20d87e1d42cefaad79c816614a076"
+  },
+  "checkpoint_paths": {
+    "AE z=128": "workshop4_autoencoders\\checkpoints\\ae_best.pt",
+    "AE z=64": "workshop4_autoencoders\\checkpoints\\ae_latent_64.pt",
+    "VAE z=64 beta=0.5": "workshop4_autoencoders\\checkpoints\\vae_best.pt",
+    "MLP z=64": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt"
+  },
+  "mlp": {
+    "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed42.pt",
+    "input_dim": 261,
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "dropout": 0.05,
+    "seed": 42,
+    "extraction_layer": "model.network[:5], output after second ReLU and before second Dropout",
+    "embedding_shape": [
+      440,
+      64
+    ],
+    "model_eval": true,
+    "parameters_frozen": true,
+    "torch_no_grad": true,
+    "checkpoint_unchanged": true
+  },
+  "preprocessing": {
+    "AE_and_VAE": "262 inputs; Workshop 4 train-only preprocessor and standardizer",
+    "MLP": "261 inputs; Workshop 2 train-only preprocessor and saved standardizer"
+  },
+  "representation_shapes": {
+    "AE z=128": [
+      440,
+      128
+    ],
+    "AE z=64": [
+      440,
+      64
+    ],
+    "VAE z=64 beta=0.5": [
+      440,
+      64
+    ],
+    "MLP z=64": [
+      440,
+      64
+    ]
+  },
+  "latent_preparation": "StandardScaler fitted independently to each 440-row latent matrix before distance-based analysis",
+  "tsne": {
+    "random_state": 42,
+    "init": "pca",
+    "learning_rate": "auto",
+    "perplexity": 30,
+    "max_iter": 1000,
+    "fit_separately_per_model": true
+  },
+  "umap": {
+    "n_neighbors": 15,
+    "min_dist": 0.1,
+    "metric": "euclidean",
+    "random_state": 42,
+    "n_jobs": 1,
+    "fit_separately_per_model": true
+  },
+  "reducer_reproducibility": {
+    "AE z=128": {
+      "tsne_max_absolute_repeat_difference": 0.0,
+      "umap_max_absolute_repeat_difference": 0.0,
+      "tsne_exact": true,
+      "umap_exact": true
+    },
+    "AE z=64": {
+      "tsne_max_absolute_repeat_difference": 0.0,
+      "umap_max_absolute_repeat_difference": 0.0,
+      "tsne_exact": true,
+      "umap_exact": true
+    },
+    "VAE z=64 beta=0.5": {
+      "tsne_max_absolute_repeat_difference": 0.0,
+      "umap_max_absolute_repeat_difference": 0.0,
+      "tsne_exact": true,
+      "umap_exact": true
+    },
+    "MLP z=64": {
+      "tsne_max_absolute_repeat_difference": 0.0,
+      "umap_max_absolute_repeat_difference": 0.0,
+      "tsne_exact": true,
+      "umap_exact": true
+    }
+  },
+  "interpretation_variables": {
+    "SalePrice": "MLP training target; post-hoc only for AE/VAE",
+    "Overall Qual": "post-hoc descriptive variable",
+    "Neighborhood": "post-hoc descriptive variable",
+    "Sale Condition": "post-hoc descriptive variable"
+  },
+  "library_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "torch": "2.15.0",
+    "scikit-learn": "1.9.1",
+    "umap-learn": "0.5.12",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2"
+  },
+  "figures": [
+    "workshop4_autoencoders\\results\\figures\\latent\\tsne_saleprice.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\tsne_overall_quality.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\tsne_neighborhood.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\tsne_sale_condition.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\umap_saleprice.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\umap_overall_quality.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\umap_neighborhood.png",
+    "workshop4_autoencoders\\results\\figures\\latent\\umap_sale_condition.png"
+  ],
+  "no_training_performed": true,
+  "test_results_not_used_for_model_selection": true
+}

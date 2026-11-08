@@ -1,0 +1,4 @@
+model,latent_dim,seed,best_epoch,validation_reconstruction_mse,parameter_count,checkpoint,checkpoint_reload_exact,test_partition_used
+AE,128,7,49,0.44921829678961006,183558,checkpoints\ae_latent_128_seed7.pt,True,False
+AE,128,42,50,0.45277109351280576,183558,checkpoints\ae_latent_128.pt,True,False
+AE,128,2026,48,0.46988527931991675,183558,checkpoints\ae_latent_128_seed2026.pt,True,False

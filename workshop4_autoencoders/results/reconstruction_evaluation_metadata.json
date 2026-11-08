@@ -1,0 +1,38 @@
+{
+  "test_observations": 440,
+  "same_test_matrix_and_feature_order": true,
+  "split_file_sha256": "cb2572a0e61676c02c5957107a59975353cbaffd2750f5baf3d7a46d3208683f",
+  "ae_checkpoint_sha256": "91bfadc0949319edcb1eb60c8980235d26c7eb5222d9e628c41b59c38616492c",
+  "vae_checkpoint_sha256": "3c916aeb8da593cba3f8adb21884e82c4d2d60d7df1d73e93b940f8e79983187",
+  "ae_configuration": {
+    "input_dim": 262,
+    "hidden_dims": [
+      192,
+      128
+    ],
+    "latent_dim": 128,
+    "output_activation": "linear"
+  },
+  "vae_configuration": {
+    "input_dim": 262,
+    "hidden_dims": [
+      192,
+      128
+    ],
+    "latent_dim": 64,
+    "posterior": "diagonal Gaussian",
+    "output_activation": "linear"
+  },
+  "vae_target_beta": 0.5,
+  "vae_kl_normalized_by_latent_dimension": true,
+  "vae_reconstruction_uses_posterior_mean": true,
+  "one_hot_reconstruction_note": "One-hot columns are reconstructed as continuous values, not categorical probabilities.",
+  "test_used_after_validation_selection": true,
+  "figures": [
+    "workshop4_autoencoders\\results\\figures\\reconstruction\\reconstruction_error_distribution.png",
+    "workshop4_autoencoders\\results\\figures\\reconstruction\\quantile_reconstruction_profiles.png",
+    "workshop4_autoencoders\\results\\figures\\reconstruction\\reconstruction_heatmaps.png",
+    "workshop4_autoencoders\\results\\figures\\reconstruction\\highest_error_features.png",
+    "workshop4_autoencoders\\results\\figures\\reconstruction\\test_mse_mae_comparison.png"
+  ]
+}
