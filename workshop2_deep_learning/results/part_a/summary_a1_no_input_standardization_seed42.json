@@ -1,0 +1,25 @@
+{
+  "run_name": "a1_no_input_standardization_seed42",
+  "config_name": "a1_no_input_standardization",
+  "description": "Ablation: keep Workshop 1 X without extra standardization",
+  "seed": 42,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.001,
+  "standardize_inputs": false,
+  "standardize_target": true,
+  "trainable_parameters": 18881,
+  "best_epoch": 75,
+  "epochs_run": 105,
+  "best_val_mae": 15696.5908203125,
+  "best_val_rmse": 26301.793094768273,
+  "best_val_r2": 0.9108155369758606,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_a1_no_input_standardization_seed42.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_a1_no_input_standardization_seed42.json"
+}

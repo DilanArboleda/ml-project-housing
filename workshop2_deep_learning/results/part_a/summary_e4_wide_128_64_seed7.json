@@ -1,0 +1,25 @@
+{
+  "run_name": "e4_wide_128_64_seed7",
+  "config_name": "e4_wide_128_64",
+  "description": "Reference with hidden layers changed to 128-64",
+  "seed": 7,
+  "hidden_dims": [
+    128,
+    64
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.001,
+  "standardize_inputs": true,
+  "standardize_target": true,
+  "trainable_parameters": 41857,
+  "best_epoch": 46,
+  "epochs_run": 76,
+  "best_val_mae": 14245.7265625,
+  "best_val_rmse": 20834.574341704225,
+  "best_val_r2": 0.9440386891365051,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_e4_wide_128_64_seed7.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_e4_wide_128_64_seed7.json"
+}

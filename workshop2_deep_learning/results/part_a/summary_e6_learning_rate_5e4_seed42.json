@@ -1,0 +1,25 @@
+{
+  "run_name": "e6_learning_rate_5e4_seed42",
+  "config_name": "e6_learning_rate_5e4",
+  "description": "Reference with learning rate changed from 1e-3 to 5e-4",
+  "seed": 42,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.0005,
+  "standardize_inputs": true,
+  "standardize_target": true,
+  "trainable_parameters": 18881,
+  "best_epoch": 61,
+  "epochs_run": 91,
+  "best_val_mae": 16341.5478515625,
+  "best_val_rmse": 25099.41449516303,
+  "best_val_r2": 0.9187832474708557,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_e6_learning_rate_5e4_seed42.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_e6_learning_rate_5e4_seed42.json"
+}

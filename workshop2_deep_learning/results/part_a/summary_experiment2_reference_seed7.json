@@ -1,0 +1,25 @@
+{
+  "run_name": "experiment2_reference_seed7",
+  "config_name": "experiment2_reference",
+  "description": "Experiment 2 reference configuration",
+  "seed": 7,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.001,
+  "standardize_inputs": true,
+  "standardize_target": true,
+  "trainable_parameters": 18881,
+  "best_epoch": 49,
+  "epochs_run": 79,
+  "best_val_mae": 13868.751953125,
+  "best_val_rmse": 20163.74330326589,
+  "best_val_r2": 0.947584331035614,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_experiment2_reference_seed7.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_experiment2_reference_seed7.json"
+}

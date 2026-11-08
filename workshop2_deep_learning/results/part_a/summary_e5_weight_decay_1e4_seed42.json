@@ -1,0 +1,25 @@
+{
+  "run_name": "e5_weight_decay_1e4_seed42",
+  "config_name": "e5_weight_decay_1e4",
+  "description": "Reference with weight decay changed from 1e-5 to 1e-4",
+  "seed": 42,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 0.0001,
+  "learning_rate": 0.001,
+  "standardize_inputs": true,
+  "standardize_target": true,
+  "trainable_parameters": 18881,
+  "best_epoch": 81,
+  "epochs_run": 111,
+  "best_val_mae": 15534.412109375,
+  "best_val_rmse": 23628.12019607146,
+  "best_val_r2": 0.9280257821083069,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_e5_weight_decay_1e4_seed42.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_e5_weight_decay_1e4_seed42.json"
+}

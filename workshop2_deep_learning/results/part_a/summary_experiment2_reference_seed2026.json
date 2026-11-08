@@ -1,0 +1,25 @@
+{
+  "run_name": "experiment2_reference_seed2026",
+  "config_name": "experiment2_reference",
+  "description": "Experiment 2 reference configuration",
+  "seed": 2026,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "dropout": 0.05,
+  "weight_decay": 1e-05,
+  "learning_rate": 0.001,
+  "standardize_inputs": true,
+  "standardize_target": true,
+  "trainable_parameters": 18881,
+  "best_epoch": 53,
+  "epochs_run": 83,
+  "best_val_mae": 14379.220703125,
+  "best_val_rmse": 20609.772439306555,
+  "best_val_r2": 0.945239782333374,
+  "selection_partition": "validation",
+  "test_partition_used": false,
+  "checkpoint": "checkpoints\\part_a\\model_experiment2_reference_seed2026.pt",
+  "history": "workshop2_deep_learning\\results\\part_a\\history_experiment2_reference_seed2026.json"
+}
