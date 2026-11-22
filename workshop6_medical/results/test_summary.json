@@ -1,0 +1,52 @@
+{
+  "best_model": "MLP",
+  "best_seed": 2026,
+  "operating_points": {
+    "screening": 0.2,
+    "triage": 0.5
+  },
+  "test_metrics": {
+    "MLP_screening": {
+      "model": "MLP",
+      "operating": "screening",
+      "threshold": 0.2,
+      "roc_auc": 0.9165876544959578,
+      "pr_auc": 0.5961846584272292,
+      "sensitivity": 0.829308909242298,
+      "specificity": 0.9028368794326241,
+      "ppv": 0.4209636517328825,
+      "npv": 0.9841515268650947,
+      "f1": 0.5584524810765349,
+      "tp": 996,
+      "fp": 1370,
+      "tn": 12730,
+      "fn": 205
+    },
+    "MLP_triage": {
+      "model": "MLP",
+      "operating": "triage",
+      "threshold": 0.5,
+      "roc_auc": 0.9165876544959578,
+      "pr_auc": 0.5961846584272292,
+      "sensitivity": 0.7194004995836802,
+      "specificity": 0.9394326241134752,
+      "ppv": 0.5029103608847497,
+      "npv": 0.9751895752042995,
+      "f1": 0.591983556012333,
+      "tp": 864,
+      "fp": 854,
+      "tn": 13246,
+      "fn": 337
+    }
+  },
+  "baseline_models": [
+    "LogReg",
+    "RandomForest",
+    "GradientBoosting"
+  ],
+  "dataset": {
+    "n_train": 69455,
+    "n_val": 16541,
+    "n_test": 15301
+  }
+}
