@@ -1,0 +1,28 @@
+# Crear el archivo con el contenido correcto
+@'
+# ============================================================
+# workshop6_medical/.gitignore
+# ============================================================
+
+# MIT-BIH raw data (reproducible via download_mitdb, ~100 MB)
+data/mitdb/
+
+# Generated feature matrices (reproducible via build_feature_matrix)
+data/features_mitdb.csv
+data/features_*.csv
+
+# Model checkpoints (reproducible via training scripts)
+*.pt
+*.pth
+*.h5
+*.pkl
+checkpoints/*.pt
+!checkpoints/.gitkeep
+
+# Temporary / experimental figures
+results/figures/test_*.png
+results/figures/tmp_*.png
+
+# IMPORTANT: data/splits_medical.json IS versioned (source of truth for seed=42)
+# DO NOT add data/splits_medical.json to .gitignore
+'@ | Out-File -FilePath .gitignore -Encoding utf8
