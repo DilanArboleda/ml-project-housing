@@ -49,7 +49,7 @@ Thumbs.db
 tools/
 
 # Documentos personales / notas de estudio (no versionar en git)
-GUIA_EXPLICATIVA_WORKSHOP1.*
+GUIA_EXPLICATIVA_*
 *ESPANOL*
 *personal*
 

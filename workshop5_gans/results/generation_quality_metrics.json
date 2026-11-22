@@ -1,0 +1,34 @@
+{
+  "Vanilla GAN": {
+    "model_name": "Vanilla GAN",
+    "frechet_distance_pca10": 0.8582430401602323,
+    "correlation_frobenius_norm": 4.313643382278684,
+    "correlation_mean_abs_diff": 0.1076781458148833,
+    "mean_ks_statistic": 0.46810436248779297,
+    "mean_wasserstein_distance": 0.10483854993494983,
+    "mean_pairwise_sample_distance": 8.23684140448647,
+    "real_pairwise_sample_distance": 9.51606857625555,
+    "pairwise_distance_ratio": 0.8655718838595801,
+    "pairwise_distance_std": 1.2646414556773764,
+    "mode_collapse_detected": false
+  },
+  "WGAN-GP": {
+    "model_name": "WGAN-GP",
+    "frechet_distance_pca10": 0.47189667140932556,
+    "correlation_frobenius_norm": 3.111482828812285,
+    "correlation_mean_abs_diff": 0.0792217665290299,
+    "mean_ks_statistic": 0.4540477395057678,
+    "mean_wasserstein_distance": 0.09177335259973474,
+    "mean_pairwise_sample_distance": 7.852504582622948,
+    "real_pairwise_sample_distance": 9.408753933327635,
+    "pairwise_distance_ratio": 0.8345955945141524,
+    "pairwise_distance_std": 1.2970677722173605,
+    "mode_collapse_detected": false
+  },
+  "comparison": {
+    "lower_frechet_distance": "WGAN-GP",
+    "lower_correlation_error": "WGAN-GP",
+    "lower_ks_statistic": "WGAN-GP",
+    "higher_diversity": "Vanilla GAN"
+  }
+}
